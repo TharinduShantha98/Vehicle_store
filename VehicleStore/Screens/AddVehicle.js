@@ -1,7 +1,10 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
-import { NativeBaseProvider, Box, Input, Center,Button,Image } from "native-base";
+import { NativeBaseProvider, Box, Input, Center,Button,Image, AddIcon,ScrollView } from "native-base";
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import Icon from 'react-native-vector-icons/AntDesign';
+
+
 
 
 
@@ -19,7 +22,17 @@ const options = {
 
 export default function AddVehicle() {
 
-        const[image , setImage ] = new useState('https://wallpaperaccess.com/full/317501.jpg');
+        const[image , setImage ] = new useState('https://www.slazzer.com/static/images/sample/png/demo-006.jpg');
+        const[vehicleNumber , setVehicleNumber ] = new useState('');
+        const[vehicleType, setVehicleType] = new useState('');
+        const[Venue, setVenue] = new useState('');
+        const[price, setPrice] = new useState('');
+        const[mileage, setmileage] = new useState('');
+        
+
+      
+
+
 
 
 
@@ -39,36 +52,47 @@ export default function AddVehicle() {
 
 
   return (
-    <Box flex={"1"} style={
+    <ScrollView flex={"1"} style={
         {
           backgroundColor:"#3F535E",
           
         }
   } >
 
-        <Box flex={"1"}  style={{backgroundColor:"#AE3636",}} >
+        <Box  flex={"1"}    style={{}} >
 
-                <Center flex={"1"} w="100%">
+                <Center flex={"3"} w="100%">
 
-                        <Box flex={"2"}  style={{backgroundColor:"#1f79a3",}} w="100%" h="100%">
-                                <Center>
+                        <Box flex={"2"}  w="100%" h="100%" backgroundColor={"black"}>
+                                <Center  flex={"2"}>
                                 <Image source={{
                                                 uri:image 
-                                                }} alt="Alternate Text" size="xl" maxWidth={"100%"}  maxHeight={"100%"}/>
+                                                }} alt="Alternate Text" size="xl"  width={"50%"}
+                                               
+                                                />
+
+
 
                                 </Center>
                               
                         </Box>
 
 
-                        <Box flex={"1"}  style={{backgroundColor:"#36AE72", }}  w="80%">
+                        <Box flex={"2"}  style={{ }}  w="80%" >
                                 <Center flex={"1"} >
                                 <Button  onPress={() => openGallary()} style={{
                                         width:150,
                                         mt:5,
-                                        fontWeight:"bold",}}>
-                                                Upload image
+                                        fontWeight:"bold",}}
+                                        leftIcon = {<AddIcon  style={{color:"#bd8682", }}/> }
+                                        size="sm"
+                                        mt={3}
+                                        >
+                                                Add Image
+
                                                 </Button>
+
+                                           
 
                                 </Center>
                               
@@ -81,24 +105,35 @@ export default function AddVehicle() {
         </Box>
 
 
-        <Box flex={"2"}  style={{backgroundColor:"#8d5cc4",}} >
+        <Box flex={"1"}  style={{}} >
 
         <Center  flex={"1"} w="100%">
-                <Box   style={{backgroundColor:"#c4c45c", }} mt="3" w="80%">
-                        <Input variant="underlined" placeholder="Vehicle Number" />
+                <Box   mt="3" w="80%">
+                        <Input variant="underlined" placeholder="Vehicle Number" color={"black"} />
                 </Box>
-                <Box   style={{backgroundColor:"#c4c45c",}}  mt="3" w="80%">
+                <Box     mt="3" w="80%">
                         <Input variant="underlined" placeholder="Vehicle Type" />
                  </Box>
-                <Box   style={{backgroundColor:"#c4c45c",}}  mt="3" w="80%">
+                <Box     mt="3" w="80%">
                     <Input variant="underlined" placeholder="Venue" />
                 </Box>
-                <Box   style={{backgroundColor:"#c4c45c",}}  mt="3" w="80%">
+                <Box    mt="3" w="80%">
                     <Input variant="underlined" placeholder="Price" />
                 </Box>
-                <Box   style={{backgroundColor:"#c4c45c",}}  mt="3"  w="80%">
+                <Box    mt="3"  w="80%">
                     <Input variant="underlined" placeholder="Contact number" />
                 </Box>
+
+                <Box   mt="3"  w="80%">
+                    <Input variant="underlined" placeholder="mileage" />
+                </Box>
+                
+
+                <Box   mt="3"  w="80%">
+                        <Button onPress={() => console.log("hello world")}>Save Vehicle</Button>
+                </Box>
+                    
+                
 
 
         </Center>
@@ -116,6 +151,6 @@ export default function AddVehicle() {
 
 
 
-  </Box>
+  </ScrollView>
   )
 }
