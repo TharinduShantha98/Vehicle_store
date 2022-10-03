@@ -63,7 +63,7 @@ export default function AddVehicle() {
 
                 <Center flex={"3"} w="100%">
 
-                        <Box flex={"2"}  w="100%" h="100%" backgroundColor={"black"}>
+                        <Box flex={"2"}  w="100%" h="100%" >
                                 <Center  flex={"2"}>
                                 <Image source={{
                                                 uri:image 
