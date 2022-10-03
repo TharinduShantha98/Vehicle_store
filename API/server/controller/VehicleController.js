@@ -8,52 +8,115 @@ let VehicleModel = require('../model/VehicleModel');
 
 //store
 const Storage = multer.diskStorage({
-    destination:'D:/ReactNative CW/API/upload/images',
+    destination: function(req, file, cb) {
+        cb(null, './upload/images/');
+    },
+
     filename:(req,file, cb)=>{
         console.log(file.originalname);
-        cb(null, file.originalname);
+        console.log(Date.now());
+        cb(null, "Vehicle" + file.originalname);
 
     }
 });
 
+
+const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+
 const upload = multer({
-    storage:Storage
-}).single('image')
+    storage:Storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+
+})
 
 
-router.post('/',(req,res)=>{
 
-    console.log(req.body);
+router.post('/',upload.single('image'), (req,res,next)=>{
 
-
-    upload(req,res,(err)=> {
-        if (err) {
-            console.log(err);
-        } else {
-            const newVehicleModel = new VehicleModel({
+    const newVehicleModel = new VehicleModel({
                 vehicleNumber: req.body.vehicleNumber,
                 vehicleType: req.body.vehicleType,
                 venue: req.body.venue,
                 price: req.body.price,
                 mileage: req.body.mileage,
-                image: {
-                    data: req.file.filename,
-                    contentType: 'image/png'
-                }
+                image:req.file.originalname,
 
+    });
+
+    newVehicleModel
+        .save()
+        .then(result =>{
+            console.log(result);
+            res.status(200).json({
+                    message: "vehicle successfully",
             })
 
-            newVehicleModel
-                .save()
-                .then(() => {
-                    res.send("post upload successfully");
-                }).catch((err) => {
-                res.send("not successFully");
-
+        })
+        .catch((err)=>{
+            console.log(err);
+            res.status(500).json({
+                error:err
             })
+        })
 
-        }
-    })
+
+})
+
+
+
+router.get('/',(req,res,next)=>{
+    VehicleModel.find()
+        .select("vehicleNumber vehicleType venue price  mileage image _id")
+        .exec()
+        .then(docs =>{
+            const  response ={
+                count: docs.length,
+                vehicles: docs.map(doc =>{
+                    return {
+                        vehicleNumber: doc.vehicleNumber,
+                        vehicleType:doc.vehicleType,
+                        venue: doc.venue,
+                        price: doc.price,
+                        mileage: doc.mileage,
+                        image: doc.image,
+                        request:{
+                            type:"GET",
+                            url:"http://localhost:3000/upload/images/Vehicle"+doc.image
+                        }
+
+
+
+                    }
+                })
+
+
+            }
+
+
+            res.status(200).json(response);
+
+
+        })
+
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json({
+                error: err
+            })
+        })
+
+
+
 
 })
 

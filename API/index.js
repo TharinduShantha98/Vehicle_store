@@ -10,13 +10,29 @@ dotenv.config({path:'config.env'})
 
 app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/upload/images', express.static('upload/images'));
 
 
-app.get('/',(req, res)=>{
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    if (req.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+        return res.status(200).json({});
+    }
+    next();
+});
 
-    res.send("Vehicle store ");
 
-})
+
+// app.get('/',(req, res)=>{
+//
+//     res.send("Vehicle store ");
+//
+// })
 
 
 

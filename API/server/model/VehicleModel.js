@@ -9,8 +9,8 @@ let schema = new mongoose.Schema({
     price:String,
     mileage:String,
     image:{
-        data: Buffer,
-        contentType: String,
+        type: String,
+        require:true
 
     }
 
