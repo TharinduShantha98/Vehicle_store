@@ -94,8 +94,6 @@ router.get('/',(req,res,next)=>{
                             url:"http://localhost:3000/upload/images/Vehicle"+doc.image
                         }
 
-
-
                     }
                 })
 
@@ -119,6 +117,39 @@ router.get('/',(req,res,next)=>{
 
 
 })
+
+
+router.delete("/vehicleId",(req,res,next)=>{
+
+    const  id = req.params.vehicleId;
+
+    VehicleModel.findByIdAndDelete(id)
+        .then(data =>{
+            if(!data){
+                res.status(404).send(
+                    {
+                        message: `cannot Delete with id${id}. maybe is wrong`
+                    })
+            }else{
+                res.send({
+                    message:"user was deleted successfully"
+                })
+            }
+
+        })
+
+
+
+
+
+
+
+})
+
+
+
+
+
 
 
 module.exports = router
