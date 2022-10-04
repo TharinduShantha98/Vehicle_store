@@ -22,7 +22,7 @@ const options = {
 
 export default function AddVehicle() {
 
-        const[image , setImage ] = new useState('https://www.slazzer.com/static/images/sample/png/demo-006.jpg');
+        const[image , setImage ] = new useState('https://cdn-icons-png.flaticon.com/512/2211/2211392.png');
         const[vehicleNumber , setVehicleNumber ] = new useState('');
         const[vehicleType, setVehicleType] = new useState('');
         const[Venue, setVenue] = new useState('');
@@ -63,7 +63,7 @@ export default function AddVehicle() {
 
                 <Center flex={"3"} w="100%">
 
-                        <Box flex={"2"}  w="100%" h="100%" >
+                        <Box flex={"2"}  w="100%" h="90%" >
                                 <Center  flex={"2"}>
                                 <Image source={{
                                                 uri:image 
@@ -91,9 +91,6 @@ export default function AddVehicle() {
                                                 Add Image
 
                                                 </Button>
-
-                                           
-
                                 </Center>
                               
                         </Box>
@@ -108,28 +105,28 @@ export default function AddVehicle() {
         <Box flex={"1"}  style={{}} >
 
         <Center  flex={"1"} w="100%">
-                <Box   mt="3" w="80%">
+                <Box   mt="2" w="80%">
                         <Input variant="underlined" placeholder="Vehicle Number" color={"black"} />
                 </Box>
-                <Box     mt="3" w="80%">
+                <Box     mt="2" w="80%">
                         <Input variant="underlined" placeholder="Vehicle Type" />
                  </Box>
-                <Box     mt="3" w="80%">
+                <Box     mt="2" w="80%">
                     <Input variant="underlined" placeholder="Venue" />
                 </Box>
-                <Box    mt="3" w="80%">
+                <Box    mt="2" w="80%">
                     <Input variant="underlined" placeholder="Price" />
                 </Box>
-                <Box    mt="3"  w="80%">
+                <Box    mt="2"  w="80%">
                     <Input variant="underlined" placeholder="Contact number" />
                 </Box>
 
-                <Box   mt="3"  w="80%">
+                <Box   mt="2"  w="80%">
                     <Input variant="underlined" placeholder="mileage" />
                 </Box>
                 
 
-                <Box   mt="3"  w="80%">
+                <Box   mt="2"  w="80%">
                         <Button onPress={() => console.log("hello world")}>Save Vehicle</Button>
                 </Box>
                     
