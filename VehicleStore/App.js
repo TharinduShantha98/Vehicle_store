@@ -20,7 +20,9 @@ function App(){
       
        <NativeBaseProvider>
             <NavigationContainer>
-                    <Stack.Navigator>
+                    <Stack.Navigator   screenOptions={{
+                            headerShown: false,
+        }}>
                         <Stack.Screen name="Home" component={Home} />
                         <Stack.Screen name="AddVehicle" component={AddVehicle} />
                         <Stack.Screen name="VehicleList" component={VehicleList} />

@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { SafeAreaView,  FlatList, StyleSheet,  StatusBar } from 'react-native';
-
+import { SafeAreaView,  FlatList, StyleSheet,  StatusBar, } from 'react-native';
+import {Box,Image,Center} from "native-base";
 
 
 
@@ -13,12 +13,17 @@ export default function VehicleList() {
     const[posts, setpost ] = useState([]);
 
     useEffect(()=>{
-            fetch('https://jsonplaceholder.typicode.com/posts')
+            fetch('http://192.168.8.103:3000/api/vehicle')
             .then((response) => response.json())
-            .then((json) => setpost(json));
+            .then((json) => {setpost(json.vehicles )
+               console.log(json.vehicles);
+
+            });
+            console.log("heloooooo")
             
-        }
-    )
+
+            
+        },[])
 
 
 
@@ -31,10 +36,28 @@ export default function VehicleList() {
       data={posts}
       renderItem={({item}) =>
 
-          <Text style={{marginBottom:"5%", padding:5, borderWidth:1}}>{item.title}</Text>
-        
 
-    
+          <Box style={{marginBottom:"5%", padding:5, borderWidth:1}}>
+            
+            <Center>
+              <Image source={
+                    { 
+                      uri:item.request.url
+                    
+                    }}alt="Alternate Text" size="xl"  width={"50%"}></Image>
+
+                <Text>Vehicle Number: {item.vehicleNumber}</Text>
+                <Text>Vehicle type : {item.vehicleType}</Text>
+                <Text>Venu : {item.venue}</Text>
+                <Text>Price : {item.price}</Text>
+                <Text>Mileage : {item.mileage}</Text>
+
+            </Center>
+              
+             
+
+          </Box>
+        
 
       }
 

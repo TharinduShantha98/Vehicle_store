@@ -12,63 +12,250 @@ export default function Home({navigation}) {
     <Box style={
         {
             flex: 1,
-          //  backgroundColor:"#000",
+          // backgroundColor:"#000",
             flexDirection:'column',
 
         }
     }>
 
       
-        <Box  style={{
+        <Box 
+      
+        style={{
             width:"100%",
             height:"100%",
-         //   backgroundColor:"#32a852",
+           // backgroundColor:"#32a852",
             display:"flex",
             alignItems:"center",
             justifyContent:"center",
-
-
-        
+           
         }}
         >
 
             <Box style={{
                 width:"100%",
-                height:"10%",
-                
+                height:"25%",
+                backgroundColor:"#3051d9",
+                borderBottomLeftRadius:30,
+                borderBottomRightRadius: 30
+
                 }}>
                 <Center>
                     <Text style={{
-                        fontSize:35,
-                        fontWeight:"bold",
+                        fontSize:28,
+                        fontWeight:"bold",}}>
+                            Vehicle Store
+                             </Text>
+                             <Text style={{
+                                fontSize:25,
+                                fontWeight:"bold",}}>
+                                Welcome!
+                             </Text>
+
+                             <Text>
+                                Good morning mr Ajith
+                             </Text>
+                             <Input variant="rounded" placeholder="search Vehicle" />
+
+                            
 
 
-                    }}>Vehicle Store </Text>
                 </Center>
             </Box>
 
 
             <Box style={{
                 width:"100%",
-                height:"50%",
-              //  backgroundColor:"#000"
+                height:"75%",
+               // backgroundColor:"#000",
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
+                flexDirection:"column",
+
+
                 
                 }}>
 
-                     <Center>
-                <Image source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/7481/7481772.png"
-                    }} alt="Alternate Text" style={{width:"70%", height:"100%"}} />
+                    <Box style={{
+                        width:"100%",
+                        height:"30%",
+                    //    backgroundColor:"#000",
+                        display:"flex",
+                        alignItems:"center",
+                        justifyContent:"space-around",
+                        flexDirection:"row",
+                     
 
-                </Center>;
+                
+                    }}>
+
+                    
+                        <Box  style={{
+                            width:"45%",
+                            height:"90%",
+                            backgroundColor:"#2e2c2c",
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            flexDirection:"row",
+                            borderTopLeftRadius:30,
+                            borderBottomRightRadius: 30
+                
+                        }}>
+
+                            <Button 
+                        
+                            onPress={() =>{navigation.navigate("AddVehicle")}}
+                                                style={{
+                                                    width:"90%",
+                                                    height:"80%",
+                                                    backgroundColor:"#2e2c2c",
+                                                    fontWeight:"bold"
+
+                     }}
+                     >Add Vehicle</Button>
+
+                        </Box>
+
+
+                        <Box  style={{
+                            width:"45%",
+                            height:"90%",
+                            backgroundColor:"#2e2c2c",
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            flexDirection:"row",
+                            borderTopLeftRadius:30,
+                            borderBottomRightRadius: 30
+                
+                        }}>
+
+                        <Button  style={{
+                        width:"90%",
+                        height:"70%",
+                        backgroundColor:"#2e2c2c",
+                        fontWeight:"bold"
+                        
+                            }} onPress={() => {navigation.navigate("VehicleList")}}>Vehicle List</Button>
+
+
+                        </Box>
+                        
+                   
+
+                    </Box>
+
+
+
+                    <Box style={{
+                        width:"100%",
+                        height:"30%",
+                    //    backgroundColor:"#000",
+                        display:"flex",
+                        alignItems:"center",
+                        justifyContent:"space-around",
+                        flexDirection:"row",
+                     
+
+                
+                    }}>
+
+                    
+                        <Box  style={{
+                            width:"45%",
+                            height:"90%",
+                            backgroundColor:"#7630d9",
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            flexDirection:"row",
+                            borderTopLeftRadius:30,
+                            borderBottomRightRadius: 30
+                
+                        }}>
+
+                        </Box>
+
+
+                        <Box  style={{
+                            width:"45%",
+                            height:"90%",
+                            backgroundColor:"#d930d9",
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            flexDirection:"row",
+                            borderTopLeftRadius:30,
+                            borderBottomRightRadius: 30
+                
+                        }}>
+
+                        </Box>
+                        
+                   
+
+                    </Box>
+
+
+                    <Box style={{
+                        width:"100%",
+                        height:"30%",
+                   //     backgroundColor:"#000",
+                        display:"flex",
+                        alignItems:"center",
+                        justifyContent:"space-around",
+                        flexDirection:"row",
+                     
+
+                
+                    }}>
+
+                    
+                        <Box  style={{
+                            width:"45%",
+                            height:"90%",
+                            backgroundColor:"#7630d9",
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            flexDirection:"row",
+                            borderTopLeftRadius:30,
+                            borderBottomRightRadius: 30
+                
+                        }}>
+
+                        </Box>
+
+
+                        <Box  style={{
+                            width:"45%",
+                            height:"90%",
+                            backgroundColor:"#d930d9",
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            flexDirection:"row",
+                            borderTopLeftRadius:30,
+                            borderBottomRightRadius: 30
+                
+                        }}>
+
+                        </Box>
+                        
+                   
+
+                    </Box>
+
 
             </Box>
 
 
-            <Box  style={{
+            {/* <Box  style={{
                 width:"100%",
-                height:"40%",
-               // backgroundColor:"#000",
+                height:"25%",
+                backgroundColor:"#4287f5",
                 display:'flex',
                 alignItems:"center",
                 justifyContent:"center",
@@ -79,7 +266,7 @@ export default function Home({navigation}) {
                     <Box style={{
                         width:"50%",
                         height:"70%",
-                     //   backgroundColor:"#4287f5",
+                     // backgroundColor:"#4287f5",
                         display:'flex',
                         alignItems:"center",
                         justifyContent:"center",
@@ -89,7 +276,7 @@ export default function Home({navigation}) {
                      <Button  onPress={() =>{navigation.navigate("AddVehicle")}}
                      style={{
                         width:"90%",
-                        height:"30%",
+                        height:"70%",
 
                      }}
                      >Add Vehicle</Button>
@@ -112,7 +299,7 @@ export default function Home({navigation}) {
 
                     <Button  style={{
                         width:"90%",
-                        height:"30%",
+                        height:"70%",
                         
                      }} onPress={() => {navigation.navigate("VehicleList")}}>Vehicle List</Button>
 
@@ -120,7 +307,7 @@ export default function Home({navigation}) {
 
 
 
-            </Box>
+            </Box> */}
 
 
 

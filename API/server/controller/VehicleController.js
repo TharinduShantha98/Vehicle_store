@@ -11,11 +11,9 @@ const Storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './upload/images/');
     },
-
     filename:(req,file, cb)=>{
-        console.log(file.originalname);
-        console.log(Date.now());
         cb(null, "Vehicle" + file.originalname);
+
 
     }
 });
@@ -43,15 +41,22 @@ const upload = multer({
 
 router.post('/',upload.single('image'), (req,res,next)=>{
 
+
+
     const newVehicleModel = new VehicleModel({
                 vehicleNumber: req.body.vehicleNumber,
                 vehicleType: req.body.vehicleType,
                 venue: req.body.venue,
                 price: req.body.price,
                 mileage: req.body.mileage,
-                image:req.file.originalname,
-
+                image:req.file.originalname
     });
+
+
+
+
+
+   console.log(req.file);
 
     newVehicleModel
         .save()
@@ -91,7 +96,7 @@ router.get('/',(req,res,next)=>{
                         image: doc.image,
                         request:{
                             type:"GET",
-                            url:"http://localhost:3000/upload/images/Vehicle"+doc.image
+                            url:"http://192.168.8.103:3000/upload/images/Vehicle"+doc.image
                         }
 
                     }
