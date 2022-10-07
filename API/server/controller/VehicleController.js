@@ -95,6 +95,7 @@ router.get('/',(req,res,next)=>{
                         price: doc.price,
                         mileage: doc.mileage,
                         image: doc.image,
+                        id:doc._id,
                         request:{
                             type:"GET",
                             url:"http://192.168.8.101:3000/upload/images/Vehicle"+doc.image
@@ -128,6 +129,7 @@ router.get('/',(req,res,next)=>{
 router.delete("/vehicleId",(req,res,next)=>{
 
     const  id = req.params.vehicleId;
+    console.log(id);
 
     VehicleModel.findByIdAndDelete(id)
         .then(data =>{

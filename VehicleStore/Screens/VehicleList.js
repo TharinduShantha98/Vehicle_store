@@ -1,8 +1,9 @@
 import { View, Text, TouchableOpacity  } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { SafeAreaView,  FlatList, StyleSheet,  StatusBar, } from 'react-native';
+import { SafeAreaView,  FlatList, StyleSheet,  StatusBar,IconButton , Icon} from 'react-native';
 import {Box,Image,Center} from "native-base";
 
+import { Entypo } from "@expo/vector-icons";
 
 
  
@@ -37,7 +38,14 @@ export default function VehicleList({navigation}) {
       renderItem={({item}) =>
 
 
-          <TouchableOpacity  style={{marginBottom:"5%", padding:5, borderWidth:1}} onPress={()=>{console.log("hello");}}>
+          <TouchableOpacity  style={{
+              marginBottom:"5%",
+              padding:5,
+              borderWidth:3,
+             // backgroundColor:"#394232"
+            
+            
+            }}  onPress={() =>{navigation.navigate("VehicleUpdate",{obj:item})}}>
             
             <Center>
               <Image source={
@@ -46,14 +54,20 @@ export default function VehicleList({navigation}) {
                     
                     }}alt="Alternate Text" size="xl"  width={"50%"}></Image>
 
+            </Center>
                 <Text>Vehicle Number: {item.vehicleNumber}</Text>
                 <Text>Vehicle type : {item.vehicleType}</Text>
                 <Text>Venu : {item.venue}</Text>
                 <Text>Price : {item.price}</Text>
                 <Text>Mileage : {item.mileage}</Text>
-
-            </Center>
-              
+                  <Box style={{
+                    display:'flex',
+                    alignItems:"center",
+                    justifyContent:"center",
+                    flexDirection:"row",
+                  }}>
+                    
+                  </Box>
              
 
           </TouchableOpacity >

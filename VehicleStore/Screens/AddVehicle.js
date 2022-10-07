@@ -9,6 +9,8 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 
 
+
+
 const options = {
          title: 'Select Image',
          type: 'library',
