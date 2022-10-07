@@ -43,19 +43,25 @@ export default function Home({navigation}) {
                 <Center>
                     <Text style={{
                         fontSize:28,
-                        fontWeight:"bold",}}>
+                        fontWeight:"bold",
+                        color:"#faf9f5"
+                        }}>
                             Vehicle Store
                              </Text>
                              <Text style={{
                                 fontSize:25,
-                                fontWeight:"bold",}}>
+                                fontWeight:"bold",
+                                color:"#faf9f5"
+                                }}>
                                 Welcome!
                              </Text>
 
-                             <Text>
+                             <Text style={{
+                                 color:"#faf9f5"
+                             }}>
                                 Good morning mr Ajith
                              </Text>
-                             <Input variant="rounded" placeholder="search Vehicle" />
+                             <Input variant="rounded" placeholder="search Vehicle" w={300} mt={2} />
 
                             
 
@@ -94,13 +100,15 @@ export default function Home({navigation}) {
                         <Box  style={{
                             width:"45%",
                             height:"90%",
-                            backgroundColor:"#2e2c2c",
+                            backgroundColor:"#8f8e8b",
                             display:"flex",
                             alignItems:"center",
                             justifyContent:"center",
                             flexDirection:"row",
                             borderTopLeftRadius:30,
-                            borderBottomRightRadius: 30
+                            borderBottomRightRadius: 30,
+                            
+                           
                 
                         }}>
 
@@ -110,10 +118,13 @@ export default function Home({navigation}) {
                                                 style={{
                                                     width:"90%",
                                                     height:"80%",
-                                                    backgroundColor:"#2e2c2c",
-                                                    fontWeight:"bold"
+                                                    backgroundColor:"#545452",
+                                                    fontWeight:"bold",
+                                                    
 
                      }}
+
+                     
                      >Add Vehicle</Button>
 
                         </Box>
@@ -122,7 +133,7 @@ export default function Home({navigation}) {
                         <Box  style={{
                             width:"45%",
                             height:"90%",
-                            backgroundColor:"#2e2c2c",
+                            backgroundColor:"#8f8e8b",
                             display:"flex",
                             alignItems:"center",
                             justifyContent:"center",
@@ -134,8 +145,8 @@ export default function Home({navigation}) {
 
                         <Button  style={{
                         width:"90%",
-                        height:"70%",
-                        backgroundColor:"#2e2c2c",
+                        height:"80%",
+                        backgroundColor:"#545452",
                         fontWeight:"bold"
                         
                             }} onPress={() => {navigation.navigate("VehicleList")}}>Vehicle List</Button>
@@ -166,7 +177,7 @@ export default function Home({navigation}) {
                         <Box  style={{
                             width:"45%",
                             height:"90%",
-                            backgroundColor:"#7630d9",
+                            backgroundColor:"#8f8e8b",
                             display:"flex",
                             alignItems:"center",
                             justifyContent:"center",
@@ -175,6 +186,16 @@ export default function Home({navigation}) {
                             borderBottomRightRadius: 30
                 
                         }}>
+                            <Button  style={{
+                        width:"90%",
+                        height:"80%",
+                        backgroundColor:"#545452",
+                        fontWeight:"bold"
+                        
+                            }} >Todo List </Button>
+
+
+                       
 
                         </Box>
 
@@ -182,7 +203,7 @@ export default function Home({navigation}) {
                         <Box  style={{
                             width:"45%",
                             height:"90%",
-                            backgroundColor:"#d930d9",
+                            backgroundColor:"#8f8e8b",
                             display:"flex",
                             alignItems:"center",
                             justifyContent:"center",
@@ -191,6 +212,14 @@ export default function Home({navigation}) {
                             borderBottomRightRadius: 30
                 
                         }}>
+
+                        <Button  style={{
+                        width:"90%",
+                        height:"80%",
+                        backgroundColor:"#545452",
+                        fontWeight:"bold"
+                        
+                            }} >Location</Button>
 
                         </Box>
                         
@@ -216,7 +245,7 @@ export default function Home({navigation}) {
                         <Box  style={{
                             width:"45%",
                             height:"90%",
-                            backgroundColor:"#7630d9",
+                            backgroundColor:"#8f8e8b",
                             display:"flex",
                             alignItems:"center",
                             justifyContent:"center",
@@ -225,6 +254,13 @@ export default function Home({navigation}) {
                             borderBottomRightRadius: 30
                 
                         }}>
+                             <Button  style={{
+                                width:"90%",
+                                height:"80%",
+                                backgroundColor:"#545452",
+                                fontWeight:"bold"
+                        
+                            }} >Favourite Vehicle</Button>
 
                         </Box>
 
@@ -232,7 +268,7 @@ export default function Home({navigation}) {
                         <Box  style={{
                             width:"45%",
                             height:"90%",
-                            backgroundColor:"#d930d9",
+                            backgroundColor:"#8f8e8b",
                             display:"flex",
                             alignItems:"center",
                             justifyContent:"center",
@@ -241,6 +277,13 @@ export default function Home({navigation}) {
                             borderBottomRightRadius: 30
                 
                         }}>
+                             <Button  style={{
+                                width:"90%",
+                                height:"80%",
+                                backgroundColor:"#545452",
+                                fontWeight:"bold"
+                        
+                            }} >Payment  Vehicle</Button>
 
                         </Box>
                         

@@ -49,9 +49,10 @@ router.post('/',upload.single('image'), (req,res,next)=>{
                 venue: req.body.venue,
                 price: req.body.price,
                 mileage: req.body.mileage,
-                image:req.file.originalname
+                image:req.image
     });
 
+    console.log(req.image)
 
 
 
@@ -96,7 +97,7 @@ router.get('/',(req,res,next)=>{
                         image: doc.image,
                         request:{
                             type:"GET",
-                            url:"http://192.168.8.103:3000/upload/images/Vehicle"+doc.image
+                            url:"http://192.168.8.101:3000/upload/images/Vehicle"+doc.image
                         }
 
                     }

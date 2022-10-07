@@ -90,6 +90,8 @@ export default function AddVehicle() {
                 //console.log(result.assets[0]);
                 setImage(result.assets[0].uri);
                 setImage1(result);
+                
+
                
         
         }
@@ -103,7 +105,7 @@ export default function AddVehicle() {
          // backgroundColor:"#3F535E",
           
         }
-  } >
+  }>
 
         <Box  flex={"1"}    style={{}} >
 

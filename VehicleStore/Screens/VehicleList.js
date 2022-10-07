@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity  } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView,  FlatList, StyleSheet,  StatusBar, } from 'react-native';
 import {Box,Image,Center} from "native-base";
@@ -8,12 +8,12 @@ import {Box,Image,Center} from "native-base";
  
   
 
-export default function VehicleList() {
+export default function VehicleList({navigation}) {
 
     const[posts, setpost ] = useState([]);
 
     useEffect(()=>{
-            fetch('http://192.168.8.103:3000/api/vehicle')
+            fetch('http://192.168.8.101:3000/api/vehicle')
             .then((response) => response.json())
             .then((json) => {setpost(json.vehicles )
                console.log(json.vehicles);
@@ -37,7 +37,7 @@ export default function VehicleList() {
       renderItem={({item}) =>
 
 
-          <Box style={{marginBottom:"5%", padding:5, borderWidth:1}}>
+          <TouchableOpacity  style={{marginBottom:"5%", padding:5, borderWidth:1}} onPress={()=>{console.log("hello");}}>
             
             <Center>
               <Image source={
@@ -56,7 +56,7 @@ export default function VehicleList() {
               
              
 
-          </Box>
+          </TouchableOpacity >
         
 
       }
