@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import {Box,Image,Center,Input, Button} from "native-base";
 import { set } from 'react-native-reanimated';
@@ -26,12 +26,13 @@ export default function VehicleUpdate({route}) {
 
     const deleteData = (object_id)=>{
 
-        fetch('http://192.168.8.101:3000/api/vehicle/vehicleId'+ object_id,{
+        fetch('http://192.168.8.101:3000/api/vehicle/'+ object_id,{
           method:"DELETE",
 
         })
 
         .then((res)=>{
+          Alert.alert("success")
           console.log("delete success");
         })
         .catch((err)=>{

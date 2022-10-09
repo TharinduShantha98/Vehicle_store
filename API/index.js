@@ -4,10 +4,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser')
 const app = express();
 
-const https = require('https')
-const fs = require('fs')
 
 const vehicle = require('./server/controller/VehicleController')
+const user = require('./server/controller/userController');
 const connectDB = require('./server/db/Connection');
 dotenv.config({path:'config.env'})
 
@@ -40,6 +39,8 @@ app.use((req, res, next) => {
 
 
 app.use('/api/vehicle',vehicle);
+app.use('/api/userAccount',user);
+
 
 
 

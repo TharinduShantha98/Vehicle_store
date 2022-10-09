@@ -49,15 +49,15 @@ router.post('/',upload.single('image'), (req,res,next)=>{
                 venue: req.body.venue,
                 price: req.body.price,
                 mileage: req.body.mileage,
-                image:req.image
+                image:req.file.originalname,
     });
 
-    console.log(req.image)
+    //console.log(req.image)
 
 
 
 
-   console.log(req.file);
+  // console.log(req.file);
 
     newVehicleModel
         .save()
@@ -126,7 +126,7 @@ router.get('/',(req,res,next)=>{
 })
 
 
-router.delete("/vehicleId",(req,res,next)=>{
+router.delete("/:vehicleId",(req,res,next)=>{
 
     const  id = req.params.vehicleId;
     console.log(id);
